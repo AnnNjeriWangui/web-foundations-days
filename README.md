@@ -18,5 +18,9 @@ Daily assignments and practice projects built during the Web Foundations program
   - `index.html`: Note Draft Counter page
   - `style.css`: Note Draft Counter stylesheet
   - `script.js`: Note Draft Counter logic
+- **day5/**: Day 5 assignments
+  - `index.html`: User Directory page
+  - `users.js`: Fetch, render and filter logic
+  - `library-api.md`: Library Books REST API design
 - **practice/**: Practice assignments
   - `quicknotes-day1/`: QuickNotes Day 1 practice task
