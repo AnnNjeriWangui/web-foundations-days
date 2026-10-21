@@ -22,5 +22,9 @@ Daily assignments and practice projects built during the Web Foundations program
   - `index.html`: User Directory page
   - `users.js`: Fetch, render and filter logic
   - `library-api.md`: Library Books REST API design
+- **day6/**: Day 6 assignments
+  - `school.sql`: Relational database schema, sample data, and queries
+  - `school-design.md`: School database design and schema documentation
 - **practice/**: Practice assignments
   - `quicknotes-day1/`: QuickNotes Day 1 practice task
+

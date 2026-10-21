@@ -1,5 +1,68 @@
 // ---------- Part A: Select elements and store the data ----------
-const API_URL = "https://jsonplaceholder.typicode.com/users";
+
+// Local Kenyan users dataset (same shape as JSONPlaceholder /users)
+const KENYAN_USERS = [
+  {
+    id: 1, name: "Wanjiru Kamau",
+    email: "wanjiru.kamau@safaricom.co.ke",
+    address: { city: "Nairobi" },
+    company: { name: "Safaricom PLC" }
+  },
+  {
+    id: 2, name: "Otieno Odhiambo",
+    email: "otieno.odhiambo@kengen.co.ke",
+    address: { city: "Kisumu" },
+    company: { name: "KenGen" }
+  },
+  {
+    id: 3, name: "Aisha Mohamed",
+    email: "aisha.mohamed@equity.co.ke",
+    address: { city: "Mombasa" },
+    company: { name: "Equity Bank Kenya" }
+  },
+  {
+    id: 4, name: "Kipchoge Mutai",
+    email: "kipchoge.mutai@kplc.co.ke",
+    address: { city: "Eldoret" },
+    company: { name: "Kenya Power" }
+  },
+  {
+    id: 5, name: "Njeri Waweru",
+    email: "njeri.waweru@cooperative.co.ke",
+    address: { city: "Nyeri" },
+    company: { name: "Co-operative Bank" }
+  },
+  {
+    id: 6, name: "Baraka Mwangi",
+    email: "baraka.mwangi@kenairways.co.ke",
+    address: { city: "Nairobi" },
+    company: { name: "Kenya Airways" }
+  },
+  {
+    id: 7, name: "Fatuma Hassan",
+    email: "fatuma.hassan@kra.go.ke",
+    address: { city: "Mombasa" },
+    company: { name: "Kenya Revenue Authority" }
+  },
+  {
+    id: 8, name: "Mwenda Kariuki",
+    email: "mwenda.kariuki@kcb.co.ke",
+    address: { city: "Nakuru" },
+    company: { name: "KCB Group" }
+  },
+  {
+    id: 9, name: "Zawadi Ochieng",
+    email: "zawadi.ochieng@uon.ac.ke",
+    address: { city: "Kisumu" },
+    company: { name: "University of Nairobi" }
+  },
+  {
+    id: 10, name: "Amina Abdi",
+    email: "amina.abdi@nhif.or.ke",
+    address: { city: "Nairobi" },
+    company: { name: "NHIF" }
+  }
+];
 
 const loadButton = document.querySelector("#load-users");
 const filterInput = document.querySelector("#filter-input");
@@ -39,25 +102,21 @@ function renderUsers(list) {
   });
 }
 
-// ---------- Part C: loadUsers() with async/await, try/catch/finally ----------
+// ---------- Part C: loadUsers() – loads from local Kenyan dataset ----------
 async function loadUsers() {
-  loadButton.disabled = true;                 // disable while loading
+  loadButton.disabled = true;
   statusMessage.textContent = "Loading users...";
 
   try {
-    const response = await fetch(API_URL);
-
-    if (!response.ok) {                        // 404, 500 and so on
-      throw new Error("Server returned status " + response.status);
-    }
-
-    users = await response.json();             // store in the array
-    applyFilter();                             // draw (respects any typed filter)
+    // Simulate a brief async load from the local dataset
+    await new Promise(resolve => setTimeout(resolve, 400));
+    users = KENYAN_USERS;
+    applyFilter();
     statusMessage.textContent = "Loaded " + users.length + " users.";
   } catch (error) {
     statusMessage.textContent = "Something went wrong: " + error.message;
   } finally {
-    loadButton.disabled = false;               // runs on success AND on error
+    loadButton.disabled = false;
   }
 }
 
